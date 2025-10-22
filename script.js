@@ -1,28 +1,44 @@
-const passwordBox = document.getElementById("password");
-        const length=12;
+const notesContainer = document.querySelector(".notes-container");
+const createBtn = document.querySelector(".btn");
+let notes = document.querySelector(".input-box");
 
-        const upperCase="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        const lowerCase="abcdefghijklmnopqrstuvwxyz";
-        const number="0123456789";
-        const symbol= "!@#$%^&*()_-=+/[]{}|()";
-        
-        const allChars= upperCase + lowerCase + number +symbol; 
+function showNotes(){
+    notesContainer.innerHTML = localStorage.getItem("notes");
+}
 
-        function createPassword(){
-            let password = "";
-            password+=upperCase[Math.floor(Math.random()*upperCase.length)];
-            password+=lowerCase[Math.floor(Math.random()*lowerCase.length)];
-            password+=number[Math.floor(Math.random()*number.length)];
-            password+=symbol[Math.floor(Math.random()*symbol.length)];
+function updateStorage(){
+    localStorage.setItem("notes", notesContainer.innerHTML);
+}
+showNotes();
 
-           while(length > password.length){
-            password +=allChars[Math.floor(Math.random()*allChars.length)];
-           }
-           passwordBox.value = password;
 
-        }
+createBtn.addEventListener("click", ()=>{
+    let inputBox = document.createElement("p");
+    let img = document.createElement("img");
+    inputBox.className = "input-box";
+    inputBox.setAttribute("contenteditable", "true");
+    img.src="images/delete.png";
+    notesContainer.appendChild(inputBox).appendChild(img);
+})
 
-        function copyPassword(){
-            passwordBox.select();
-            document.execCommand("copy");
-        }
+notesContainer.addEventListener("click", function(e){
+    if(e.target.tagName==="IMG"){
+        e.target.parentElement.remove();
+        updateStorage();
+    }
+    else if(e.target.tagName==="p"){
+        notes= document.querySelectorAll(".input-box");
+        notes.forEach(nt=>{
+            nt.onkeyup = function(){
+               updateStorage(); 
+            }
+        })
+    }
+})
+
+document.addEventListener("keydown", event=>{
+    if(event.key==="Enter"){
+        Document.execCommand("insertLineBreak");
+        event.preventDefault();
+    }
+})

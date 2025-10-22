@@ -3,18 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Password Generator</title>
+    <title>Note App</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Generate a <br><span>Random Password</span></h1>
-        <div class="display">
-            <input type="text" id="password" placeholder="Password">
-            <img src="images/copy.png" onclick="copyPassword()">
+        <h1> <img src="images/notes.png" >Notes</h1>
+        <button class="btn"><img src="images/edit.png" >Create Notes</button>
+        <div class="notes-container">
+            <!-- <p contenteditable="true" class="input-box">
+                <img src="images/delete.png" >
+            </p> -->
         </div>
-        <button onclick="createPassword()"><img src="images/generate.png" >Generate Password</button>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
