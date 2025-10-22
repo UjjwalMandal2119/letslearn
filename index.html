@@ -3,24 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz App</title>
+    <title>Random Password Generator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="app">
-    <h1>Simple Quiz</h1>
-    <div class="quiz">
-        <h2 id="question">Question goes here</h2>
-        <div id="answer-buttons">
-            <button class="btn">Answer 1</button>
-            <button class="btn">Answer 2</button>
-            <button class="btn">Answer 3</button>
-            <button class="btn">Answer 4</button>
+    <div class="container">
+        <h1>Generate a <br><span>Random Password</span></h1>
+        <div class="display">
+            <input type="text" id="password" placeholder="Password">
+            <img src="images/copy.png" onclick="copyPassword()">
         </div>
-         <button id="next-btn">Next</button>
-
+        <button onclick="createPassword()"><img src="images/generate.png" >Generate Password</button>
     </div>
-  </div>
     <script src="script.js"></script>
 </body>
 </html>
