@@ -1,0 +1,155 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ujjwal Mandal - Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <header class="hero-section">
+    <div class="stars"></div>
+    <div class="stars2"></div>
+    <div class="stars3"></div>
+    
+    <div class="animated-bg">
+      <div class="nebula nebula1"></div>
+      <div class="nebula nebula2"></div>
+      <div class="nebula nebula3"></div>
+    </div>
+    
+    <div class="header-content">
+      <div class="profile-pic">
+        <img src="6th oct.jpg" alt="Ujjwal Mandal" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'photo-placeholder\'>UM</div>';" />
+      </div>
+      
+      <h1 class="glowing-text">Hello, I'm <span class="highlight">Ujjwal Mandal</span></h1>
+      <p class="tagline">
+        <span class="typing-text">Final Year Computer Science Student | Full Stack Developer | UPSC Aspirant</span>
+      </p>
+      
+      <div class="cta-buttons">
+        <a href="#projects" class="btn btn-primary">
+          <i class="fas fa-code"></i> View My Work
+        </a>
+        <a href="#contact" class="btn btn-secondary">
+          <i class="fas fa-envelope"></i> Contact Me
+        </a>
+      </div>
+      
+      <nav>
+        <a href="#about"><i class="fas fa-user"></i> About</a>
+        <a href="#skills"><i class="fas fa-cogs"></i> Skills</a>
+        <a href="#projects"><i class="fas fa-folder-open"></i> Projects</a>
+        <a href="#contact"><i class="fas fa-paper-plane"></i> Contact</a>
+      </nav>
+    </div>
+    
+    <div class="scroll-indicator">
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      I'm Ujjwal Mandal, a final year Computer Science Engineering student passionate about web development, 
+      competitive programming, and UI/UX design. Currently preparing for UPSC Civil Services 
+      while building innovative tech solutions and exploring the latest technologies.
+    </p>
+  </section>
+
+  <section id="skills">
+    <h2>Technical Skills</h2>
+    <div class="skills-container">
+      <div class="skill-card">
+        <i class="fas fa-laptop-code skill-icon"></i>
+        <h3>Frontend</h3>
+        <p>HTML, CSS, JavaScript, React, TypeScript</p>
+      </div>
+      <div class="skill-card">
+        <i class="fas fa-server skill-icon"></i>
+        <h3>Backend</h3>
+        <p>Node.js, MongoDB, API Development</p>
+      </div>
+      <div class="skill-card">
+        <i class="fas fa-code skill-icon"></i>
+        <h3>Languages</h3>
+        <p>Java, C++, Python</p>
+      </div>
+      <div class="skill-card">
+        <i class="fas fa-palette skill-icon"></i>
+        <h3>Design</h3>
+        <p>UI/UX Design, Responsive Web Design</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Featured Projects</h2>
+    <div class="projects-container">
+      <div class="project-card">
+        <div class="project-icon">
+          <i class="fas fa-database"></i>
+        </div>
+        <h3>MERN Stack Application</h3>
+        <p>Full-stack web app with MongoDB, Express, React, and Node.js featuring user authentication and real-time updates.</p>
+      </div>
+      <div class="project-card">
+        <div class="project-icon">
+          <i class="fas fa-trophy"></i>
+        </div>
+        <h3>Competitive Programming Solutions</h3>
+        <p>Optimized algorithms and data structures solutions in Java and C++ with efficient time complexity.</p>
+      </div>
+      <div class="project-card">
+        <div class="project-icon">
+          <i class="fas fa-university"></i>
+        </div>
+        <h3>University Portal Clone</h3>
+        <p>Responsive website clone with modern UI/UX design and interactive features.</p>
+      </div>
+      <div class="project-card">
+        <div class="project-icon">
+          <i class="fas fa-microphone"></i>
+        </div>
+        <h3>Voice Control System</h3>
+        <p>Python-based voice recognition system with custom command processing.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Get In Touch</h2>
+    <p class="contact-intro">Feel free to reach out! I'd love to hear from you.</p>
+    <form id="contactForm">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <textarea id="message" placeholder="Your Message" required></textarea>
+      <button type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+    </form>
+    <div class="social-links">
+      <a href="mailto:ujjwal@example.com" title="Email">
+        <i class="fas fa-envelope"></i> Email
+      </a>
+      <a href="https://www.linkedin.com/in/ujjwal-mandal-5a1112213/" target="_blank" title="LinkedIn">
+        <i class="fab fa-linkedin"></i> LinkedIn
+      </a>
+      <a href="https://github.com/UjjwalMandal2119" target="_blank" title="GitHub">
+        <i class="fab fa-github"></i> GitHub
+      </a>
+      <a href="https://x.com/ujjwal815351" target="_blank" title="Twitter">
+        <i class="fab fa-twitter"></i> Twitter
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Ujjwal Mandal | Built with passion and code</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
