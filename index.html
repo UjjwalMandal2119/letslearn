@@ -3,44 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toast Notification</title>
+    <title>Photo_Gallery</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/d952da247e.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="buttons">
-        <button onclick="showToast(successMsg)">Success</button>
-        <button onclick="showToast(errorMsg)">Error</button>
-        <button onclick="showToast(invalidMsg)">Invalid</button>
-    </div>
-    <div id="toastBox">
-
-    </div>
-
-    <script>
-        let toastBox = document.getElementById('toastBox');
-        let successMsg = '<i class="fa-solid fa-circle-check"></i> Successfully submitted';
-        let errorMsg = '<i class="fa-solid fa-circle-xmark"></i> Please fix the error';
-        let invalidMsg= '<i class="fa-solid fa-circle-exclamation"></i> Invalid input, check again';
+    <div class="gallery-wrap">
+        <img src="images/back.png" id="backBtn">
         
-        function showToast(msg){
-            let toast = document.createElement('div');
-            toast.classList.add('toast');
-            toast.innerHTML= msg;
-            toastBox.appendChild(toast);
+    <div class="gallery">
+      <div>
+        <span><img src="images/img1.jpg" ></span>
+        <span><img src="images/img2.jpg" ></span>
+        <span><img src="images/img3.jpg" ></span>
+       
+      </div>
+       <div>
+        <span><img src="images/img4.jpg" ></span>
+        <span><img src="images/img5.jpg" ></span>
+        <span><img src="images/img6.jpg" ></span>
+       
+      </div>
+       <div>
+        <span><img src="images/img7.jpg" ></span>
+        <span><img src="images/img8.jpg" ></span>
+        <span><img src="images/img9.jpg" ></span>
+       
+      </div>
 
-            if(msg.includes('error')){
-                toast.classList.add('error');
-            }
-            if(msg.includes('Invalid')){
-                toast.classList.add('invalid');
-            }
 
-            setTimeout(()=>{
-                toast.remove();
-            },6000);
-        }
+    </div>
+    <img src="images/next.png" id="nextBtn">
+    </div>
+  <script>
+      let scrollContainer = document.querySelector(".gallery");
+      let backBtn = document.getElementById("backBtn");
+      let nextBtn = document.getElementById("nextBtn");
 
-    </script>
+      scrollContainer.addEventListener("wheel", (evt)=>{
+        evt.preventDefault();
+        scrollContainer.scrollLeft += evt.deltaY;
+        scrollContainer.style.scrollBehavior= "auto";
+      });
+
+      nextBtn.addEventListener("click", () =>{
+          scrollContainer.style.scrollBehavior= "smooth";
+          scrollContainer.scrollLeft+=900;
+      });
+
+      backBtn.addEventListener("click", () =>{
+        scrollContainer.style.scrollBehavior= "smooth";
+          scrollContainer.scrollLeft-=900;
+      });
+
+
+  </script>
+
+
 </body>
 </html>
