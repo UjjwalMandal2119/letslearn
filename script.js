@@ -1,44 +1,47 @@
-const notesContainer = document.querySelector(".notes-container");
-const createBtn = document.querySelector(".btn");
-let notes = document.querySelector(".input-box");
+const accessKey="E4O64vjbgeCJSPWjbCIzyGaMn-zs2n0rAfE_Y5wdhkY";
 
-function showNotes(){
-    notesContainer.innerHTML = localStorage.getItem("notes");
+const searchForm = document.getElementById("search-form");
+const searchBox = document.getElementById("search-box");
+const searchResult = document.getElementById("search-result");
+const showMoreBtn = document.getElementById("show-more-btn");
+
+let keyword = "";
+let page=1;
+async function searchImage(){
+    keyword = searchBox.Value;
+    const url =`http://api.unsplash.com/search/photos?page=${page}&query=$
+    {keyword}&client_id=${accessKey}&per_page=12`;
+
+    const response = await fetch(url);
+    const data = await response.json();
+
+    if(page ===1){
+        searchResult.innerHTML="";
+    }
+
+   const results = data.results;
+   results.map((result)=>{
+     const image = document.createEllement("img");
+     image.src = result.urls.small;
+     const imageLink = document.createElement("a");
+     imageLink.href = result.links.html;
+     imageLink.target="_blank";
+
+     imageLink.appendChild(image);
+     searchResult.appendChild(imageLink);
+
+   })
+   showMoreBtn.style.display = "block";
+
 }
 
-function updateStorage(){
-    localStorage.setItem("notes", notesContainer.innerHTML);
-}
-showNotes();
-
-
-createBtn.addEventListener("click", ()=>{
-    let inputBox = document.createElement("p");
-    let img = document.createElement("img");
-    inputBox.className = "input-box";
-    inputBox.setAttribute("contenteditable", "true");
-    img.src="images/delete.png";
-    notesContainer.appendChild(inputBox).appendChild(img);
+searchForm.addEventListener("submit", (e)=>{
+    e.preventDefault();
+    page=1;
+    searchImage();
 })
 
-notesContainer.addEventListener("click", function(e){
-    if(e.target.tagName==="IMG"){
-        e.target.parentElement.remove();
-        updateStorage();
-    }
-    else if(e.target.tagName==="p"){
-        notes= document.querySelectorAll(".input-box");
-        notes.forEach(nt=>{
-            nt.onkeyup = function(){
-               updateStorage(); 
-            }
-        })
-    }
-})
-
-document.addEventListener("keydown", event=>{
-    if(event.key==="Enter"){
-        Document.execCommand("insertLineBreak");
-        event.preventDefault();
-    }
+showMoreBtn.addEventListener("click", ()=>{
+    page++;
+    searchImage();
 })
